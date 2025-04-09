@@ -45,6 +45,12 @@ class MainActivity : ComponentActivity() {
         super.onPause()
         Log.d("Estado", "onPause")
     }
+
+    override fun onStop(){
+        super.onStop()
+        Log.d("Estado","OnStop")
+    }
+
 }
 
 @Composable
