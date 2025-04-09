@@ -69,11 +69,18 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@Composable
+fun GreetingText(message:String, modifier: Modifier = Modifier) {
+    Text(
+        text = message
+    )
+}
 
 @Preview(showBackground = true)
 @Composable
 fun BirthdayCardPreview() {
     CicloVidaTheme {
-
+        GreetingText(message = "Happy birthday Daniel")
     }
 }
+
