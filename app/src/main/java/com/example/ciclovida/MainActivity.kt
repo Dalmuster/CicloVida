@@ -15,6 +15,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.ciclovida.ui.theme.CicloVidaTheme
 
 class MainActivity : ComponentActivity() {
+
+    var Inicio: Long = 0
+    var Final: Long = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -33,6 +37,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onStart() {
         super.onStart()
+        Inicio=System.currentTimeMillis()
         Log.d("Estado", "onStart")
     }
 
@@ -43,6 +48,9 @@ class MainActivity : ComponentActivity() {
 
     override fun onPause(){
         super.onPause()
+        Final=System.currentTimeMillis()
+        val TiempoActivo =(Final-Inicio)/1000
+        Log.d("Tiempo", "$TiempoActivo Segundos")
         Log.d("Estado", "onPause")
     }
 
