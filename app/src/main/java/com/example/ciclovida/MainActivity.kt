@@ -28,6 +28,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        Log.d("Estado", "onCreate")
+    }
+
+    override fun onStart() {
+        super.onStart()
         Log.d("Estado", "onStart")
     }
 }
