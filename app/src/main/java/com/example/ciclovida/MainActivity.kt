@@ -78,6 +78,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun BirthdayCardPreview() {
     CicloVidaTheme {
-        Greeting("Android")
+        Greeting("Daniel")
     }
 }
