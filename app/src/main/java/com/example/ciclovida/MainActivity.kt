@@ -51,6 +51,11 @@ class MainActivity : ComponentActivity() {
         Log.d("Estado","OnStop")
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Estado", "OnDestroy")
+    }
+
 }
 
 @Composable
