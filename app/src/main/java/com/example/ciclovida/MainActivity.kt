@@ -35,6 +35,11 @@ class MainActivity : ComponentActivity() {
         super.onStart()
         Log.d("Estado", "onStart")
     }
+
+    override fun onResume(){
+        super.onResume()
+        Log.d("Estado", "onResume")
+    }
 }
 
 @Composable
