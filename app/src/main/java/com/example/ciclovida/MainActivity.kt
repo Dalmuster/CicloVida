@@ -5,13 +5,17 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.ciclovida.ui.theme.CicloVidaTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,8 +29,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             CicloVidaTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    JetpackCompose(
+                        ronda = 0,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -67,17 +71,27 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun JetpackCompose(ronda: Int, modifier: Modifier = Modifier) {
+    Column {
+        Text(
+            text = "Ronda"
+        )
+        Text(
+            text = "$ronda",
+            modifier = modifier
+                .border(
+                    width = 2.dp,
+                    color = Color.Black
+                )
+                .padding(horizontal = 20.dp)
+        )
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     CicloVidaTheme {
-        Greeting("Android")
+        JetpackCompose(0)
     }
 }
