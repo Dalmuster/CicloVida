@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.ciclovida.ui.theme.CicloVidaTheme
 
 class MainActivity : ComponentActivity() {
@@ -72,7 +73,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingText(message:String, modifier: Modifier = Modifier) {
     Text(
-        text = message
+        text = message,
+        fontSize = 100.sp,
+        lineHeight = 116.sp
     )
 }
 
