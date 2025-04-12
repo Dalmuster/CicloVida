@@ -1,6 +1,7 @@
 package com.example.ciclovida
 
 import android.os.Bundle
+import android.text.Layout
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +19,10 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -92,27 +97,36 @@ fun JetpackCompose(ronda: Int, modifier: Modifier = Modifier) {
                 .padding(start = 16.dp, end = 121.dp)
 
         ){
-            Text(
-                text = "Ronda"
-            )
-            Text(
-                text = "$ronda",
-                modifier = modifier
-                    .border(
-                        width = 2.dp,
-                        color = Color.Black
-                    )
-                    .padding(horizontal = 20.dp)
-                    .align(alignment = Alignment.End)
-            )
+
         }
         Row {
-            Boton(Color.Blue)
-            Boton(Color.Green)
-        }
-        Row {
-            Boton(Color.Red)
-            Boton(Color.Yellow)
+            Column (
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = modifier.padding(top=48.dp)
+            ){
+                Boton(Color.Blue)
+                Boton(Color.Red)
+                BotonStart()
+            }
+            Column {
+                Text(
+                    text = "Ronda",
+                    modifier = modifier
+                        .align(Alignment.CenterHorizontally)
+                )
+                Text(
+                    text = "$ronda",
+                    modifier = modifier
+                        .border(
+                            width = 2.dp,
+                            color = Color.Black
+                        )
+                        .padding(horizontal = 20.dp)
+                        .align(Alignment.CenterHorizontally)
+                )
+                Boton(Color.Green)
+                Boton(Color.Yellow)
+            }
         }
 
         }
