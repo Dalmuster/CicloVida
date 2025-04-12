@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,8 +15,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import com.example.ciclovida.ui.theme.CicloVidaTheme
 import com.example.ciclovida.Boton
 
+
 class MainActivity : ComponentActivity() {
 
     var Inicio: Long = 0
@@ -44,7 +50,6 @@ class MainActivity : ComponentActivity() {
             CicloVidaTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     JetpackCompose(
-                        ronda = 0,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -85,7 +90,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun JetpackCompose(ronda: Int, modifier: Modifier = Modifier) {
+fun JetpackCompose(modifier: Modifier = Modifier) {
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -108,7 +113,9 @@ fun JetpackCompose(ronda: Int, modifier: Modifier = Modifier) {
                 Boton(Color.Red)
                 BotonStart()
             }
-            Column {
+            Column (
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ){
                 Text(
                     text = "Ronda",
                     modifier = modifier
@@ -126,6 +133,16 @@ fun JetpackCompose(ronda: Int, modifier: Modifier = Modifier) {
                 )
                 Boton(Color.Green)
                 Boton(Color.Yellow)
+                Button(
+                    onClick = {
+                        ronda++
+                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.PlayArrow,
+                        contentDescription = "Sumar 1"
+                    )
+                }
             }
         }
 
@@ -137,6 +154,6 @@ fun JetpackCompose(ronda: Int, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     CicloVidaTheme {
-        JetpackCompose(0)
+        JetpackCompose()
     }
 }
