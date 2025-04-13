@@ -91,6 +91,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun JetpackCompose(modifier: Modifier = Modifier) {
+    var ronda by remember { mutableStateOf(0) }
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -128,14 +129,15 @@ fun JetpackCompose(modifier: Modifier = Modifier) {
                             width = 2.dp,
                             color = Color.Black
                         )
-                        .padding(horizontal = 20.dp)
+                        .padding(horizontal = MasDe10(ronda))
                         .align(Alignment.CenterHorizontally)
                 )
                 Boton(Color.Green)
                 Boton(Color.Yellow)
                 Button(
                     onClick = {
-                        ronda++
+                        MasDe10(ronda)
+                        ronda=Sumar(ronda)
                     }
                 ) {
                     Icon(
